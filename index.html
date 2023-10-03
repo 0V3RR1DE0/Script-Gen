@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CMD and PowerShell Generator</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <h1>CMD and PowerShell Generator</h1>
+    
+    <div class="generator" id="cmd-generator">
+        <h2>Generate CMD Command:</h2>
+        <form>
+            <label for="cmd-command">Command:</label>
+            <input type="text" id="cmd-command" name="cmd-command" placeholder="Enter CMD command">
+            <button type="button" onclick="generateCMD()">Generate CMD</button>
+        </form>
+        <div class="output">
+            <h2>Generated CMD Command:</h2>
+            <pre id="generated-cmd"></pre>
+        </div>
+    </div>
+
+    <div class="generator" id="ps-generator">
+        <h2>Generate PowerShell Command:</h2>
+        <form>
+            <label for="ps-command">Command:</label>
+            <input type="text" id="ps-command" name="ps-command" placeholder="Enter PowerShell command">
+            <button type="button" onclick="generatePowerShell()">Generate PowerShell</button>
+        </form>
+        <div class="output">
+            <h2>Generated PowerShell Command:</h2>
+            <pre id="generated-ps"></pre>
+        </div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
