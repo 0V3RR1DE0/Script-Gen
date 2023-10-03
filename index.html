@@ -7,8 +7,13 @@
 </head>
 <body>
     <h1>CMD and PowerShell Generator</h1>
-    
-    <div class="generator" id="cmd-generator">
+
+    <div class="tabs">
+        <button id="cmd-tab" class="tab-button" onclick="switchTab('cmd')">CMD</button>
+        <button id="ps-tab" class="tab-button" onclick="switchTab('ps')">PowerShell</button>
+    </div>
+
+    <div id="cmd-generator" class="generator">
         <h2>Generate CMD Command:</h2>
         <form>
             <label for="cmd-command">Command:</label>
@@ -17,11 +22,14 @@
         </form>
         <div class="output">
             <h2>Generated CMD Command:</h2>
-            <pre id="generated-cmd"></pre>
+            <div class="output-content">
+                <pre id="generated-cmd"></pre>
+                <button id="copy-cmd-button" onclick="copyToClipboard('generated-cmd')">Copy</button>
+            </div>
         </div>
     </div>
 
-    <div class="generator" id="ps-generator">
+    <div id="ps-generator" class="generator" style="display: none;">
         <h2>Generate PowerShell Command:</h2>
         <form>
             <label for="ps-command">Command:</label>
@@ -30,8 +38,23 @@
         </form>
         <div class="output">
             <h2>Generated PowerShell Command:</h2>
-            <pre id="generated-ps"></pre>
+            <div class="output-content">
+                <pre id="generated-ps"></pre>
+                <button id="copy-ps-button" onclick="copyToClipboard('generated-ps')">Copy</button>
+            </div>
         </div>
+    </div>
+
+    <div class="cubes">
+        <div class="cube" draggable="true" ondragstart="drag(event)">Cube 1</div>
+        <div class="cube" draggable="true" ondragstart="drag(event)">Cube 2</div>
+        <div class="cube" draggable="true" ondragstart="drag(event)">Cube 3</div>
+    </div>
+
+    <div id="script-box" class="script-box" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h2>Script:</h2>
+        <textarea id="script-textarea" rows="6" readonly></textarea>
+        <button id="copy-script-button" onclick="copyToClipboard('script-textarea')">Copy</button>
     </div>
 
     <script src="js/scripts.js"></script>
