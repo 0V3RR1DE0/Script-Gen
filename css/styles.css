@@ -1,54 +1,52 @@
-body {
-    font-family: Arial, sans-serif;
+/* Add or customize styles as needed */
+
+.tabs {
     text-align: center;
-    margin: 20px;
+    margin: 10px 0;
 }
 
-h1 {
-    color: #333;
+.tab-button {
+    padding: 10px 20px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.tab-button:hover {
+    background-color: #ddd;
+}
+
+.cubes {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.cube {
+    width: 50px;
+    height: 50px;
+    background-color: #0074D9;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    user-drag: none;
 }
 
 .generator {
-    margin: 20px auto;
-    max-width: 400px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    /* ... existing styles ... */
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
+.output-content {
+    display: flex;
+    align-items: center;
 }
 
 button {
-    background-color: #0074D9;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    margin-left: 10px;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
-.output {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-pre {
-    white-space: pre-wrap;
+.script-box {
+    /* ... existing styles ... */
 }
