@@ -22,5 +22,64 @@
     <label for="output-to-text-file">Output to text file:</label>
     <input type="checkbox" id="output-to-text-file">
     <script src="js/script.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            // Reset all selected settings and clear the script preview
+            document.getElementById('language-options').selectedIndex = 0;
+            document.getElementById('command-options').selectedIndex = 0;
+            document.getElementById('script-preview').value = '';
+            document.getElementById('output-to-text-file').checked = false;
+        });
+
+        // Populate the command options dropdown when a language is selected
+        document.getElementById('language-options').addEventListener('change', function() {
+            var language = this.value;
+            var select = document.getElementById('command-options');
+            select.innerHTML = ""; // Clear the current options
+            for(var category in commands[language]) {
+                var optgroup = document.createElement('optgroup');
+                optgroup.label = category;
+                for(var i = 0; i < commands[language][category].length; i++) {
+                    var option = document.createElement('option');
+                    option.text = commands[language][category][i];
+                    optgroup.appendChild(option);
+                }
+                select.appendChild(optgroup);
+            }
+        });
+
+        // Add the selected command to the script preview
+        function addCommand() {
+            var select = document.getElementById('command-options');
+            var command = select.options[select.selectedIndex].text;
+            document.getElementById('script-preview').value += command + "\n";
+        }
+
+        // Copy the code in the script preview
+        function copyCode() {
+            var scriptPreview = document.getElementById('script-preview');
+            scriptPreview.select();
+            document.execCommand('copy');
+        }
+
+        // Generate and download a file with the code
+        function downloadFile() {
+            var text = document.getElementById('script-preview').value;
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            var language = document.getElementById('language-options').value;
+            var extension = language === 'powershell' ? '.ps1' : '.sh';
+            // Check if the output to text file checkbox is checked
+            var outputToTextFile = document.getElementById('output-to-text-file').checked;
+            if (outputToTextFile) {
+                extension = '.txt';
+            }
+            element.setAttribute('download', 'script' + extension);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
 </body>
 </html>
