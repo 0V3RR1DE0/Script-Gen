@@ -1,62 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>CMD and PowerShell Generator</title>
+    <title>Shell Code Generator</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-    <h1>CMD and PowerShell Generator</h1>
-
-    <div class="tabs">
-        <button id="cmd-tab" class="tab-button" onclick="switchTab('cmd')">CMD</button>
-        <button id="ps-tab" class="tab-button" onclick="switchTab('ps')">PowerShell</button>
-    </div>
-
-    <div id="cmd-generator" class="generator">
-        <h2>Generate CMD Command:</h2>
-        <form>
-            <label for="cmd-command">Command:</label>
-            <input type="text" id="cmd-command" name="cmd-command" placeholder="Enter CMD command">
-            <button type="button" onclick="generateCMD()">Generate CMD</button>
-        </form>
-        <div class="output">
-            <h2>Generated CMD Command:</h2>
-            <div class="output-content">
-                <pre id="generated-cmd"></pre>
-                <button id="copy-cmd-button" onclick="copyToClipboard('generated-cmd')">Copy</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="ps-generator" class="generator" style="display: none;">
-        <h2>Generate PowerShell Command:</h2>
-        <form>
-            <label for="ps-command">Command:</label>
-            <input type="text" id="ps-command" name="ps-command" placeholder="Enter PowerShell command">
-            <button type="button" onclick="generatePowerShell()">Generate PowerShell</button>
-        </form>
-        <div class="output">
-            <h2>Generated PowerShell Command:</h2>
-            <div class="output-content">
-                <pre id="generated-ps"></pre>
-                <button id="copy-ps-button" onclick="copyToClipboard('generated-ps')">Copy</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="cubes">
-        <div class="cube" draggable="true" ondragstart="drag(event)">Cube 1</div>
-        <div class="cube" draggable="true" ondragstart="drag(event)">Cube 2</div>
-        <div class="cube" draggable="true" ondragstart="drag(event)">Cube 3</div>
-    </div>
-
-    <div id="script-box" class="script-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <h2>Script:</h2>
-        <textarea id="script-textarea" rows="6" readonly></textarea>
-        <button id="copy-script-button" onclick="copyToClipboard('script-textarea')">Copy</button>
-    </div>
-
-    <script src="js/scripts.js"></script>
+    <h1>Shell Code Generator</h1>
+    <p>Select a command from the dropdown list and click "Add Command" to add it to the script. You can preview the full script in the text area below. Click "Copy Code" to copy the script to your clipboard, or "Download File" to download the script as a .sh file.</p>
+    <select id="command-options">
+        <!-- Populate this with your command options -->
+    </select>
+    <button onclick="addCommand()">Add Command</button>
+    <textarea id="script-preview" readonly></textarea>
+    <button onclick="copyCode()">Copy Code</button>
+    <button onclick="downloadFile()">Download File</button>
+    <script src="js/script.js"></script>
 </body>
 </html>
