@@ -1,46 +1,35 @@
-// Add or customize JavaScript functions as needed
+// An array of your command options
+var commands = ["netsh wlan show profiles", "netsh wlan show profiles <all networks> key=clear", /* more commands */];
 
-let activeTab = 'cmd';
-
-function switchTab(tab) {
-    if (tab === 'cmd') {
-        document.getElementById('cmd-generator').style.display = 'block';
-        document.getElementById('ps-generator').style.display = 'none';
-        activeTab = 'cmd';
-    } else if (tab === 'ps') {
-        document.getElementById('cmd-generator').style.display = 'none';
-        document.getElementById('ps-generator').style.display = 'block';
-        activeTab = 'ps';
-    }
+// Populate the command options dropdown
+var select = document.getElementById('command-options');
+for(var i = 0; i < commands.length; i++) {
+    var option = document.createElement('option');
+    option.text = commands[i];
+    select.add(option);
 }
 
-function generateCMD() {
-    // Add logic to generate CMD command here
-    // Update the generated-cmd pre element with the result
+// Add the selected command to the script preview
+function addCommand() {
+    var command = select.options[select.selectedIndex].text;
+    document.getElementById('script-preview').value += command + "\n";
 }
 
-function generatePowerShell() {
-    // Add logic to generate PowerShell command here
-    // Update the generated-ps pre element with the result
-}
-
-function copyToClipboard(elementId) {
-    const textarea = document.getElementById(elementId);
-    textarea.select();
+// Copy the code in the script preview
+function copyCode() {
+    var scriptPreview = document.getElementById('script-preview');
+    scriptPreview.select();
     document.execCommand('copy');
 }
 
-function drag(event) {
-    event.dataTransfer.setData('text/plain', event.target.textContent);
-}
-
-function allowDrop(event) {
-    event.preventDefault();
-}
-
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData('text/plain');
-    const textarea = document.getElementById('script-textarea');
-    textarea.value += data + '\n'; // Append the cube's text to the script
+// Generate and download a file with the code
+function downloadFile() {
+    var text = document.getElementById('script-preview').value;
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', 'script.sh');
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
 }
