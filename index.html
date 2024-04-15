@@ -7,6 +7,11 @@
 <body>
     <h1>Shell Code Generator</h1>
     <p>Select a command from the dropdown list and click "Add Command" to add it to the script. You can preview the full script in the text area below. Click "Copy Code" to copy the script to your clipboard, or "Download File" to download the script as a .sh file.</p>
+    <select id="language-options">
+        <option value="bash-linux">Bash (Linux)</option>
+        <option value="bash-windows">Bash (Windows)</option>
+        <option value="powershell">PowerShell (Both)</option>
+    </select>
     <select id="command-options">
         <!-- Populate this with your command options -->
     </select>
@@ -14,6 +19,8 @@
     <textarea id="script-preview" readonly></textarea>
     <button onclick="copyCode()">Copy Code</button>
     <button onclick="downloadFile()">Download File</button>
+    <label for="output-to-text-file">Output to text file:</label>
+    <input type="checkbox" id="output-to-text-file">
     <script src="js/script.js"></script>
 </body>
 </html>
