@@ -1,52 +1,28 @@
-/* Add or customize styles as needed */
-
-.tabs {
-    text-align: center;
-    margin: 10px 0;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    color: #333;
 }
 
-.tab-button {
-    padding: 10px 20px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-.tab-button:hover {
-    background-color: #ddd;
-}
-
-.cubes {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.cube {
-    width: 50px;
-    height: 50px;
-    background-color: #0074D9;
-    color: #fff;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
-    user-drag: none;
-}
-
-.generator {
-    /* ... existing styles ... */
-}
-
-.output-content {
-    display: flex;
-    align-items: center;
+select, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
 
 button {
-    margin-left: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.script-box {
-    /* ... existing styles ... */
+button:hover {
+    background-color: #0056b3;
 }
